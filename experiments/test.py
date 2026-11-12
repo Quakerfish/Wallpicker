@@ -1,8 +1,7 @@
 import ctypes
 from pathlib import Path
 
-ACTION_CODE = 20
-UPDATE_FLAG = 1 | 2
+ACTION_CODE = 20, UPDATE_FLAG = 1 | 2
 
 def set_wallpaper(image_path: Path) -> bool: #Function for setting the desktop wallpaper
     image_path = image_path.resolve() #Located the path location of the file
@@ -12,7 +11,7 @@ def set_wallpaper(image_path: Path) -> bool: #Function for setting the desktop w
         return False
     
     setwa = ctypes.windll.user32.SystemParametersInfoW #Assigns the wallpaper to the desktop
-    setwa.argtypes = [ #I DO NOT KNOW WHAT THIS MEANS T-T
+    setwa.argtypes = [ #argument types
         ctypes.c_uint,
         ctypes.c_uint,
         ctypes.c_wchar_p,

@@ -3,19 +3,17 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QLabel, QV
 from PySide6 import QtCore, QtGui
 
 class MainWindow(QMainWindow): #Class for Window customization and contents
-    def __init__(self):
+    def __init__(self): 
         super().__init__()
 
-        self.setWindowTitle("Wallpicker")
-        self.resize(900, 600)
+        self.setWindowTitle("Wallpicker") #Window Title
+        self.resize(900, 600) #Window Initial Sizing
 
-        layout = QVBoxLayout
+        layout = QVBoxLayout() 
 
-        
+        label = QLabel("No Folder Selected")
+        layout.addWidget(label)
 
-app = QApplication(sys.argv) #Instanciate the PySide Application
-
-window = MainWindow() #Creates the Window
-window.show() #Shows the Window
-
-sys.exit(app.exec()) #Keeps the Window from closing
+        container = QWidget()
+        container.setLayout(layout)
+        self.setCentralWidget(container)
